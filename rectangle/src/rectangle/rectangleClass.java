@@ -4,17 +4,14 @@ import java.util.Scanner;
 
 public class rectangleClass {
 
-    public int length, width;
-    public double perimeter, area;
+    public int length, width, perimeter, area;
     Scanner computerKeyboardInput = new Scanner(System.in);
 
-    public double //this is what it's returning
-            getPerimeter()//this is what we're shoving in
-    {
+    public int getPerimeter() {
         return this.perimeter;
     }
 
-    public double getArea() {
+    public int getArea() {
         return this.area;
     }
 
@@ -26,15 +23,30 @@ public class rectangleClass {
         return this.width;
     }
 
-    public void setLength() {
-
+    void setLength() {
+        System.out.print("Please enter length: ");
+        length = computerKeyboardInput.nextInt();
     }
 
-    public void setWidth() {
-
+    void setWidth() {
+        System.out.print("Please enter width: ");
+        width = computerKeyboardInput.nextInt();
     }
 
     public boolean isSquare() {
-        return length == width;
+        if (length == width) {
+            System.out.println("This paper is a square: " + this.length + " x " + this.width);
+            return true;
+        } else {
+            System.out.println("This paper is a rectangle: " + this.length + " x " + this.width);
+            return false;
+        }
+    }
+
+    void printRectangleData() {
+        perimeter = 2 * length + 2 * width;
+        System.out.println("Perimeter: " + this.perimeter);
+        area = length * width;
+        System.out.print("Area: " + this.area + "\n");
     }
 }
